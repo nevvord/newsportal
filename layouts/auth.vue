@@ -9,6 +9,6 @@ import Notifications from '~/components/Notifications'
 export default {
   components: {
     Notifications
-  }
+  },
 }
 </script>
