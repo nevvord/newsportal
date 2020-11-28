@@ -17,18 +17,13 @@ export default {
     Loader,
     Notifications
   },
-  computed: {
-    ...mapGetters({
-      auth: 'auth/GET_AUTH'
-    })
-  },
   methods: {
     ...mapActions({
       hideLoading: 'HIDE_LOADING'
     })
   },
   mounted: function () {
-    if (!this.auth) {
+    if (!this.$auth.loggedIn) {
       this.$router.push('/admin/auth')
     } else {
       this.$nextTick(this.hideLoading)

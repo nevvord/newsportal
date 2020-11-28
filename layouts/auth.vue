@@ -7,6 +7,7 @@ v-app
 <script>
 import Notifications from '~/components/Notifications'
 export default {
+  name: 'AuthLayout',
   components: {
     Notifications
   }

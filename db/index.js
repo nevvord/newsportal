@@ -14,6 +14,7 @@ module.exports = () => {
 
   return {
     connection,
-    Users: require('./models/Users')(mongoose, connection)
+    Users: require('./models/Users')(mongoose, connection),
+    Posts: require('./models/Post')(mongoose, connection)
   }
 }

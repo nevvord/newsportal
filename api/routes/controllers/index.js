@@ -1,7 +1,14 @@
 import getTest from './get/getTest'
 import signin from './post/signin'
-
+import getUserAdmin from './get/getUserAdmin'
+import addPost from './post/addPost'
+import getAllPosts from './get/getAllPosts'
+import getOnePost from './get/getOnePost'
 export default {
   getTest,
   signin,
+  getUserAdmin,
+  addPost,
+  getAllPosts,
+  getOnePost
 }

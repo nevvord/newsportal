@@ -20,6 +20,7 @@ v-container( fluid class="grey lighten-3" )
           v-card-text
             v-text-field(
               v-model="form.login"
+              :rules="rules.name"
               label='Login'
             )
             v-text-field(
@@ -31,6 +32,7 @@ v-container( fluid class="grey lighten-3" )
               color="green darken-2"
               class="white--text"
               type="submit"
+              :disabled="!valid"
             ) Signin
 </template>
 <script>
@@ -43,6 +45,12 @@ export default {
     form: {
       login: null,
       password: null
+    },
+    rules: {
+      name: [
+        val => (val || '').length > 0 || 'Логин обязателен',
+        val => (val || '').length > 4 || 'Длина логина более 4-х символов'
+      ]
     }
   }},
   methods: {
@@ -52,10 +60,17 @@ export default {
     auth: async function () {
       this.loading = true
       try {
-        const response = await this.$axios.$post('/api/signin', this.form)
+        const response = await this.$auth.loginWith('local', { data: this.form })
         this.loading = false
         this.$router.push('/admin')
+        this.$notify({
+          group: 'app',
+          type: 'success',
+          title: 'System',
+          text: response.data.msg
+        })
       } catch (error) {
+        console.error(error)
         this.$notify({
           group: 'app',
           type: 'error',
