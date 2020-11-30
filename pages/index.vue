@@ -10,7 +10,6 @@ v-container
 <script>
 import CardNews from '~/components/cardNews'
 export default {
-  layout: 'admin',
   components: {
     CardNews
   },

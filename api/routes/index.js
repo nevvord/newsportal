@@ -10,4 +10,6 @@ router
   .post('/post/add', controllers.addPost)
   .get('/post/get/all', controllers.getAllPosts)
   .get('/post/get/:id', controllers.getOnePost)
+  .delete('/post/delete/:id', controllers.deletePost)
+  .put('/post/change/:id', controllers.changePost)
 export default router
